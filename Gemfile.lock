@@ -165,6 +165,7 @@ DEPENDENCIES
   capistrano3-delayed-job
   capistrano3-puma
   daemons
+  delayed_job
   delayed_job_active_record
   listen (~> 3.0.5)
   puma (~> 3.0)
