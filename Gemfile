@@ -36,6 +36,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 #delayjob
+gem 'delayjob'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
