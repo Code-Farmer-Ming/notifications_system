@@ -29,7 +29,8 @@ set :nginx_server_name,'notifications.diningcity.asia'
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system','public/pdfs')
-set :delayed_job_args, "-n 2"
+set :delayed_job_prefix, 'notifications_system'
+
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
