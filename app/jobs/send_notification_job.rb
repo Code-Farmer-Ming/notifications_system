@@ -7,7 +7,7 @@ class SendNotificationJob < ApplicationJob
 
     send_object = {tokens: tokens.split(',') ,profile: 'production',notification: {message: msg}}
 
-    if scheduled && Time.parse(scheduled)
+    if scheduled
       send_object[:scheduled]= DateTime.parse(scheduled).rfc3339
     end
     if link
@@ -24,6 +24,6 @@ class SendNotificationJob < ApplicationJob
     request.body =send_object.to_json
 
     response = http.request(request)
-    puts response.read_body
+    logger.info response.read_body
   end
 end
