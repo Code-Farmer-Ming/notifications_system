@@ -1,7 +1,7 @@
 class SendNotificationJob < ApplicationJob
   queue_as :default
 
-  def perform(tokens,msg,link=nil,scheduled=nil)
+  def perform(tokens,msg,device_type=nil,link=nil,scheduled=nil)
     # Do something later
     url = URI("https://api.ionic.io/push/notifications")
 
