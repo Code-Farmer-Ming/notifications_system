@@ -11,7 +11,7 @@ class SendNotificationJob < ApplicationJob
       send_object[:scheduled]= DateTime.parse(scheduled).rfc3339
     end
     if link
-      send_object[:notification]= {payload: {my_data: link}}
+      send_object[:notification][:payload]= {my_data: link}
     end
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
