@@ -5,7 +5,7 @@ class SendNotificationJob < ApplicationJob
     # Do something later
     url = URI("https://api.ionic.io/push/notifications")
 
-    send_object = {tokens: tokens.split(',').reject(&:blank?),profile: 'production',notification: {message: msg,ios: {badge: 1,sound: 'default'}}}
+    send_object = {tokens: tokens.split(',').reject(&:blank?),profile: 'production',notification: {title: 'DiningCity',message: msg,ios: {badge: 1,sound: 'default'}}}
 
     if scheduled
       send_object[:scheduled]= DateTime.parse(scheduled).rfc3339
