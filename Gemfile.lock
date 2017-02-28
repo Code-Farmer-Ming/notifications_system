@@ -62,18 +62,14 @@ GEM
     capistrano-rbenv-install (1.2.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
-    capistrano3-delayed-job (1.7.2)
-      capistrano (~> 3.0, >= 3.0.0)
+    capistrano-sidekiq (0.10.0)
+      capistrano
+      sidekiq (>= 3.4)
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
     concurrent-ruby (1.0.2)
-    daemons (1.2.3)
-    delayed_job (4.1.2)
-      activesupport (>= 3.0, < 5.1)
-    delayed_job_active_record (4.1.1)
-      activerecord (>= 3.0, < 5.1)
-      delayed_job (>= 3.0, < 5)
+    connection_pool (2.2.1)
     erubis (2.7.0)
     ffi (1.9.13)
     globalid (0.3.6)
@@ -102,6 +98,8 @@ GEM
     pkg-config (1.1.7)
     puma (3.6.0)
     rack (2.0.1)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0)
@@ -131,6 +129,12 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redis (3.3.3)
+    sidekiq (4.2.9)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -162,17 +166,16 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
-  capistrano3-delayed-job
+  capistrano-sidekiq
   capistrano3-puma
-  daemons
-  delayed_job_active_record
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   tzinfo-data
 
 BUNDLED WITH
-   1.11.2
+   1.14.5
