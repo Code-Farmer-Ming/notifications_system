@@ -35,9 +35,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-#delayjob
-gem 'delayed_job_active_record'
-gem 'daemons'
+gem 'sidekiq'
 
 
 # Use Capistrano for deployment
@@ -46,5 +44,5 @@ group :development do
   gem 'capistrano3-puma',require: false
   gem 'capistrano-rbenv',require: false
   gem 'capistrano-rbenv-install',require: false
-  gem 'capistrano3-delayed-job',require: false
+  gem 'capistrano-sidekiq',require: false
 end
