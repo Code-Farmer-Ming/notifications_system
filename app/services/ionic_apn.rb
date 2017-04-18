@@ -24,7 +24,7 @@ class IonicApn < Object
 
     response = http.request(request)
     result = JSON(response.read_body)
-    logger.info result
+    Rails.logger.info result
     unless result["meta"]["status"].to_s=='201'
       raise result
     end
