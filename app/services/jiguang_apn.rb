@@ -1,13 +1,14 @@
-class JiguangApn < Object
+require 'net/http'
+class JiguangApn
 
   def self.send_notification(tokens,msg,auth_key,link=nil,scheduled=nil)
     # Do something later
-    url = URI(" https://api.jpush.cn/v3/push")
+    url = URI("https://api.jpush.cn/v3/push")
 
     send_object = {
       audience: {registration_id: tokens},
       platform: 'all',notification: {alert: msg,ios: {badge: 1,sound: 'default'},android: {title: 'DiningCity'}},
-      apns_production: false
+      options: {apns_production: false}
     }
 
     if link
@@ -26,8 +27,8 @@ class JiguangApn < Object
 
     response = http.request(request)
     result = JSON(response.read_body)
-    logger.info result
-    unless result["meta"]["status"].to_s=='201'
+    Rails.logger.info result
+    unless response.code.to_s=='200'
       raise result
     end
   end
