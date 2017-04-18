@@ -1,16 +1,18 @@
-class IonicApn < Object
+class JiguangApn < Object
 
   def self.send_notification(tokens,msg,auth_key,link=nil,scheduled=nil)
     # Do something later
-    url = URI("https://api.ionic.io/push/notifications")
+    url = URI(" https://api.jpush.cn/v3/push")
 
-    send_object = {tokens: tokens,profile: 'production',notification: {title: 'DiningCity',message: msg,ios: {badge: 1,sound: 'default'}}}
+    send_object = {
+      audience: {registration_id: tokens},
+      platform: 'all',notification: {alert: msg,ios: {badge: 1,sound: 'default'},android: {title: 'DiningCity'}}
+     apns_production: false
+    }
 
-    if scheduled
-      send_object[:scheduled]= DateTime.parse(scheduled).rfc3339
-    end
     if link
-      send_object[:notification][:payload]= {my_data: link}
+      send_object[:notification][:ios][:extras]= {my_data: link}
+      send_object[:notification][:android][:extras]= {my_data: link}
     end
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
