@@ -8,7 +8,7 @@ class JiguangApn
     send_object = {
       audience: {registration_id: tokens},
       platform: 'all',notification: {alert: msg,ios: {badge: 1,sound: 'default'},android: {title: 'DiningCity'}},
-      options: {apns_production: false}
+      options: {apns_production: true}
     }
 
     if link
