@@ -36,7 +36,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'sidekiq','3.4.1'
-
+gem 'sinatra', '~> 2.0.0.rc2', require: false
 
 # Use Capistrano for deployment
 group :development do
