@@ -35,8 +35,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem 'sidekiq'
-gem 'redis-namespace'
+gem 'sidekiq','3.4.1'
 
 
 # Use Capistrano for deployment
