@@ -29,7 +29,7 @@ class JiguangApn
     result = JSON(response.read_body)
     Rails.logger.info result
     unless response.code.to_s=='200'
-      raise result
+      fail response.read_body
     end
   end
 end

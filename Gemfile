@@ -35,7 +35,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem 'sidekiq','3.4.1'
+gem 'sidekiq'
 
 
 # Use Capistrano for deployment

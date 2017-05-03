@@ -26,7 +26,7 @@ class IonicApn < Object
     result = JSON(response.read_body)
     Rails.logger.info result
     unless result["meta"]["status"].to_s=='201'
-      raise result
+      fail response.read_body
     end
   end
 end
