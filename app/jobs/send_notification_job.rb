@@ -3,8 +3,8 @@ class SendNotificationJob < ApplicationJob
 
   def perform(tokens,msg,device_type=nil,link=nil,scheduled=nil)
     tokens = tokens.split(',').reject(&:blank?)
-    ionic_tokens =  tokens.select{|item| item.size==64}
-    other_tokens =  tokens.select{|item| item.size!=64}
+    ionic_tokens =  tokens.select{|item| item.size>60}
+    other_tokens =  tokens.select{|item| item.size<60}
     if ionic_tokens.present?
       IonicApn.send_notification(ionic_tokens,msg,ENV["AUTH_ACCESS_KEY"],link,scheduled)
     end
