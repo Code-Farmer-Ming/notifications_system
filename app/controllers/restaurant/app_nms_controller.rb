@@ -1,7 +1,7 @@
 module Restaurant
   class AppNmsController < ApplicationController
     def create
-      RestaurantSendNotificationJob.perform_later(get_params[:tokens], get_params[:msg], get_params[:device_type], get_params[:link], get_params[:scheduled])
+      RestaurantSendNotificationJob.perform_later(get_params[:tokens], get_params[:msg], get_params[:title], get_params[:link], get_params[:scheduled])
       render status: 201
     end
 

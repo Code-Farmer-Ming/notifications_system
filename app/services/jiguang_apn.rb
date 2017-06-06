@@ -1,13 +1,13 @@
 require 'net/http'
 class JiguangApn
 
-  def self.send_notification(tokens,msg,auth_key,link=nil,scheduled=nil)
+  def self.send_notification(tokens,msg,auth_key,title=nil,link=nil,scheduled=nil)
     # Do something later
     url = URI("https://api.jpush.cn/v3/push")
 
     send_object = {
       audience: {registration_id: tokens},
-      platform: 'all',notification: {alert: msg,ios: {badge: 1,sound: 'default'},android: {title: 'DiningCity'}},
+      platform: 'all',notification: {ios: {alert: {title: title || 'DiningCity',body: msg },badge: 1,sound: 'default'},android: {title: title || 'DiningCity',alert: msg}},
       options: {apns_production: true}
     }
 
